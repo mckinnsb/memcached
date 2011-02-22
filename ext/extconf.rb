@@ -33,9 +33,9 @@ end
 def check_libmemcached
   return if ENV["EXTERNAL_LIB"]
 
-  $includes = " -I#{HERE}/include"
+  $includes = " -I#{HERE}/include -I/usr/local/include"
   $defines = " -DLIBMEMCACHED_WITH_SASL_SUPPORT"
-  $libraries = " -L#{HERE}/lib"
+  $libraries = " -L#{HERE}/lib -L/usr/local/lib"
   $CFLAGS = "#{$includes} #{$libraries} #{$CFLAGS}"
   $LDFLAGS = "-lsasl2 -lm #{$libraries} #{$LDFLAGS}"
   $LIBPATH = ["#{HERE}/lib"]
